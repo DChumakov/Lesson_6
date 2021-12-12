@@ -7,38 +7,34 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 import static java.lang.System.setProperty;
 
-
-public class HomeWork_2 {
-
+public class HomeWork_3 {
 
     @Test
     public void homework_1() {
 
-      String URL = " https://masterskayapola.ru/kalkulyator/laminata.html";
+        String URL = " https://calc.by/building-calculators/laminate.html";
 
         setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
-        String lengthroomValue = "5";
-        String widthroomValue = "2";
-        String lengthlaminateValue = "1300";
-        String widthlaminateValue = "192";
-        String quantitylaminateinpackageValue = "12";
-        String pricelaminatepackageValue = "500";
-        String seriesoffsetValue = "300";
-        String indentationfromthewallValue = "10";
+        String lengthroomValue = "6m";
+        String widthroomValue = "3m";
+        String lengthlaminateValue = "1300mm";
+        String widthlaminateValue = "192mm";
+        String quantitylaminateinpackageValue = "12pcs";
+        String pricelaminatepackageValue = "500r/m2";
+        String seriesoffsetValue = "300mm";
+        String indentationfromthewallValue = "10mm";
 
 
 
-        String expectedLayingArea = "9.86";
-        String expectedNumberOfPanels = "45";
-        String expectedNumberOfPackages = "4";
-        String expectedCost = "5990";
-        String expectedLeftovers = "3";
-        String expectedSegments = "5";
+        String expectedLayingArea = "17.82m2";
+        String expectedNumberOfPanels = "80pc";
+        String expectedNumberOfPackages = "7pcs";
+        String expectedCost = "10483rub";
+        String expectedLeftovers = "4pcs";
+        String expectedSegments = "24pcs";
 
 
 // 1. Открыть браузер и перейти на тестируемую страницу
@@ -49,28 +45,22 @@ public class HomeWork_2 {
 
 
         WebElement lengthroom = driver.findElement(By.name("calc_roomwidth"));
-      //  lengthroom.clear();
         lengthroom.sendKeys(lengthroomValue);
 
         WebElement widthroom = driver.findElement(By.name("calc_roomheight"));
-      widthroom.clear();
         widthroom.sendKeys(widthroomValue);
 
         WebElement lengthlaminate = driver.findElement(By.name("calc_lamwidth"));
-      lengthlaminate.clear();
         lengthlaminate.sendKeys(lengthlaminateValue);
 
 
         WebElement widthlaminate = driver.findElement(By.name("calc_lamheight"));
-      widthlaminate.clear();
         widthlaminate.sendKeys(widthlaminateValue);
 
         WebElement quantitylaminateinpackage = driver.findElement(By.name("calc_inpack"));
-      quantitylaminateinpackage.clear();
         quantitylaminateinpackage.sendKeys(quantitylaminateinpackageValue);
 
         WebElement pricelaminatepackage = driver.findElement(By.name("calc_price"));
-      pricelaminatepackage.clear();
         pricelaminatepackage.sendKeys(pricelaminatepackageValue);
 
         WebElement layingdirectionElement = driver.findElement(By.name("calc_direct"));
@@ -81,24 +71,16 @@ public class HomeWork_2 {
         //sexDropDown.selectByVisibleText("женский");
 
         WebElement seriesoffset = driver.findElement(By.name("calc_bias"));
-      seriesoffset.clear();
         seriesoffset.sendKeys(seriesoffsetValue);
 
         WebElement indentationfromthewall = driver.findElement(By.name("calc_walldist"));
-      indentationfromthewall.clear();
         indentationfromthewall.sendKeys(indentationfromthewallValue);
 
 
 
         // 7.Нажать на кнопку "Рассчитать"
-      WebElement calculate = driver.findElement(By.xpath("//input[@type='button']"));
-
-
-
-      calculate.click();
-
-
-      // calculate.click();
+        WebElement calculate = driver.findElement(By.className("btn btn-secondary btn-lg tocalc"));
+        calculate.click();
 
         //8.Проверить результаты
 
@@ -123,7 +105,6 @@ public class HomeWork_2 {
 
         driver.quit();
     }
+}
 
-
-  }
 
