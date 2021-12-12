@@ -26,7 +26,7 @@ public class CssSelectors {
 
         By searchLikeContainesSelector = By.cssSelector("form[action*='admin']");  // поиск с вхождением подстроки в значение атрибута
 
-        By searchByWordSelector = By.cssSelector("form[action*='admin']");  // поиск с вхождением слова в значении атрибу
+        By searchByWordSelector = By.cssSelector("form[action*='admin']");  // поиск с вхождением слова в значении атрибута
 
         By valueStartsFromSelector = By.cssSelector("a[href^='https://']");  // поиск элемента с атрибутом значение которого начинается с чего-то
 
