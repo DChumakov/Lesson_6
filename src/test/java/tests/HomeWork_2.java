@@ -20,16 +20,16 @@ public class HomeWork_2 {
 
       String URL = " https://masterskayapola.ru/kalkulyator/laminata.html";
 
-        setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
-        String lengthroomValue = "5";
-        String widthroomValue = "2";
-        String lengthlaminateValue = "1300";
-        String widthlaminateValue = "192";
-        String quantitylaminateinpackageValue = "12";
-        String pricelaminatepackageValue = "500";
-        String seriesoffsetValue = "300";
-        String indentationfromthewallValue = "10";
+        String lengthroomValue = "5,0";
+        String widthroomValue = "2,0";
+        String lengthlaminateValue = "1300,0";
+        String widthlaminateValue = "192,0";
+        String quantitylaminateinpackageValue = "12,0";
+        String pricelaminatepackageValue = "500,0";
+        String seriesoffsetValue = "300,0";
+        String indentationfromthewallValue = "10,0";
 
 
 
