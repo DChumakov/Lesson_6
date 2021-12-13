@@ -22,12 +22,7 @@ public class HomeWork_4_selectori {
         ChromeDriver driver = new ChromeDriver();
         driver.get(URL);
 
-
-        List<WebElement> elements = (List<WebElement>) driver.findElements(By.cssSelector("a[href^=http]"));
-
-        for (WebElement e : elements) {
-            System.out.println(e.getAttribute("href"));
-        }
+        By classSelector = By.cssSelector(".box-content");  // поиск по классу radio
 
         
 
