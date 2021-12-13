@@ -16,11 +16,11 @@ public class HomeWork_2 {
 
 
     @Test
-    public void homework_1() {
+    public void homework_1() throws InterruptedException {
 
       String URL = " https://masterskayapola.ru/kalkulyator/laminata.html";
 
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
         String lengthroomValue = "5,0";
         String widthroomValue = "2,0";
@@ -53,39 +53,39 @@ public class HomeWork_2 {
         lengthroom.sendKeys(lengthroomValue);
 
         WebElement widthroom = driver.findElement(By.name("calc_roomheight"));
-      widthroom.clear();
+      //widthroom.clear();
         widthroom.sendKeys(widthroomValue);
 
         WebElement lengthlaminate = driver.findElement(By.name("calc_lamwidth"));
-      lengthlaminate.clear();
+      //lengthlaminate.clear();
         lengthlaminate.sendKeys(lengthlaminateValue);
 
 
         WebElement widthlaminate = driver.findElement(By.name("calc_lamheight"));
-      widthlaminate.clear();
+     // widthlaminate.clear();
         widthlaminate.sendKeys(widthlaminateValue);
 
         WebElement quantitylaminateinpackage = driver.findElement(By.name("calc_inpack"));
-      quantitylaminateinpackage.clear();
+      //quantitylaminateinpackage.clear();
         quantitylaminateinpackage.sendKeys(quantitylaminateinpackageValue);
 
         WebElement pricelaminatepackage = driver.findElement(By.name("calc_price"));
-      pricelaminatepackage.clear();
+     // pricelaminatepackage.clear();
         pricelaminatepackage.sendKeys(pricelaminatepackageValue);
 
         WebElement layingdirectionElement = driver.findElement(By.name("calc_direct"));
         Select layingdirectionDropDown = new Select(layingdirectionElement);
 
         //sexDropDown.selectByIndex(1);
-        layingdirectionDropDown.selectByValue("toh");
-        //sexDropDown.selectByVisibleText("женский");
+        //layingdirectionDropDown.selectByValue("toh");
+      layingdirectionDropDown.selectByVisibleText("По ширине комнаты");
 
         WebElement seriesoffset = driver.findElement(By.name("calc_bias"));
-      seriesoffset.clear();
+     // seriesoffset.clear();
         seriesoffset.sendKeys(seriesoffsetValue);
 
         WebElement indentationfromthewall = driver.findElement(By.name("calc_walldist"));
-      indentationfromthewall.clear();
+     // indentationfromthewall.clear();
         indentationfromthewall.sendKeys(indentationfromthewallValue);
 
 
@@ -113,13 +113,14 @@ public class HomeWork_2 {
 
 
 
-        Assert.assertEquals(actualLayingArea,expectedLayingArea, "МДРД различные");
-        Assert.assertEquals(actualNumberOfPanels,expectedNumberOfPanels, "МДРД1 различные");
-        Assert.assertEquals(actualNumberOfPackages,expectedNumberOfPackages, "CG различные");
-        Assert.assertEquals(actualCost,expectedCost, "BSA различные");
-        Assert.assertEquals(actualLeftovers,expectedLeftovers, "BSA различные");
-        Assert.assertEquals(actualSegments,expectedSegments, "BSA различные");
+        Assert.assertEquals(actualLayingArea,expectedLayingArea, "различные");
+        Assert.assertEquals(actualNumberOfPanels,expectedNumberOfPanels, "различные");
+        Assert.assertEquals(actualNumberOfPackages,expectedNumberOfPackages, "различные");
+        Assert.assertEquals(actualCost,expectedCost, "различные");
+        Assert.assertEquals(actualLeftovers,expectedLeftovers, "различные");
+        Assert.assertEquals(actualSegments,expectedSegments, "различные");
 
+        Thread.sleep(25000);
 
         driver.quit();
     }

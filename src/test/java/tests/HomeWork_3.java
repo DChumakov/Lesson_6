@@ -18,23 +18,19 @@ public class HomeWork_3 {
 
         setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 
-        String lengthroomValue = "6m";
-        String widthroomValue = "3m";
-        String lengthlaminateValue = "1300mm";
-        String widthlaminateValue = "192mm";
-        String quantitylaminateinpackageValue = "12pcs";
-        String pricelaminatepackageValue = "500r/m2";
-        String seriesoffsetValue = "300mm";
-        String indentationfromthewallValue = "10mm";
+        String lengthroomValue = "500";
+        String widthroomValue = "400";
+        String lengthlaminateValue = "2000";
+        String widthlaminateValue = "200";
+        String quantitylaminateinpackageValue = "8";
+        String mincroppinglengthValue = "250";
+        String indentationfromthewallValue = "10";
 
 
 
-        String expectedLayingArea = "17.82m2";
-        String expectedNumberOfPanels = "80pc";
-        String expectedNumberOfPackages = "7pcs";
-        String expectedCost = "10483rub";
-        String expectedLeftovers = "4pcs";
-        String expectedSegments = "24pcs";
+
+        String expectedNumberOfPanels = "53";
+        String expectedNumberOfPackages = "7";
 
 
 // 1. Открыть браузер и перейти на тестируемую страницу
@@ -44,34 +40,36 @@ public class HomeWork_3 {
         driver.manage().window().maximize();
 
 
-        WebElement lengthroom = driver.findElement(By.name("calc_roomwidth"));
+        WebElement lengthroom = driver.findElement(By.id("ln_room_id"));
         lengthroom.sendKeys(lengthroomValue);
 
-        WebElement widthroom = driver.findElement(By.name("calc_roomheight"));
+        WebElement widthroom = driver.findElement(By.id("wd_room_id"));
         widthroom.sendKeys(widthroomValue);
 
-        WebElement lengthlaminate = driver.findElement(By.name("calc_lamwidth"));
+        WebElement lengthlaminate = driver.findElement(By.id("ln_lam_id"));
         lengthlaminate.sendKeys(lengthlaminateValue);
 
 
-        WebElement widthlaminate = driver.findElement(By.name("calc_lamheight"));
+        WebElement widthlaminate = driver.findElement(By.id("wd_lam_id"));
         widthlaminate.sendKeys(widthlaminateValue);
 
-        WebElement quantitylaminateinpackage = driver.findElement(By.name("calc_inpack"));
+
+        WebElement quantitylaminateinpackage = driver.findElement(By.id("n_packing"));
         quantitylaminateinpackage.sendKeys(quantitylaminateinpackageValue);
 
-        WebElement pricelaminatepackage = driver.findElement(By.name("calc_price"));
-        pricelaminatepackage.sendKeys(pricelaminatepackageValue);
-
-        WebElement layingdirectionElement = driver.findElement(By.name("calc_direct"));
-        Select layingdirectionDropDown = new Select(layingdirectionElement);
+        WebElement methodoflayinglaminateElement = driver.findElement(By.id("laying_method_laminate"));
+        Select methodoflayinglaminateDropDown = new Select(methodoflayinglaminateElement);
 
         //sexDropDown.selectByIndex(1);
-        layingdirectionDropDown.selectByValue("toh");
+        methodoflayinglaminateDropDown.selectByValue("2");
         //sexDropDown.selectByVisibleText("женский");
 
-        WebElement seriesoffset = driver.findElement(By.name("calc_bias"));
-        seriesoffset.sendKeys(seriesoffsetValue);
+        WebElement mincroppinglength = driver.findElement(By.id("min_length_segment_id"));
+        mincroppinglength.sendKeys(mincroppinglengthValue);
+
+
+        WebElement indentationfromthewalls = driver.findElement(By.id("indent_walls_id"));
+        indentationfromthewalls.sendKeys(indentationfromthewallsValue);
 
         WebElement indentationfromthewall = driver.findElement(By.name("calc_walldist"));
         indentationfromthewall.sendKeys(indentationfromthewallValue);
