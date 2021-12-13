@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -58,6 +59,8 @@ public class HomeWork_2 {
 
         WebElement lengthlaminate = driver.findElement(By.name("calc_lamwidth"));
       //lengthlaminate.clear();
+        lengthlaminate.sendKeys(Keys.CONTROL + "a");
+        lengthlaminate.sendKeys(Keys.DELETE);
         lengthlaminate.sendKeys(lengthlaminateValue);
 
 
