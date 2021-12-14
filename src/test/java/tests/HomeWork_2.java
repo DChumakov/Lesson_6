@@ -51,10 +51,14 @@ public class HomeWork_2 {
 
         WebElement lengthroom = driver.findElement(By.name("calc_roomwidth"));
       //  lengthroom.clear();
+      lengthroom.sendKeys(Keys.CONTROL + "a");
+      lengthroom.sendKeys(Keys.DELETE);
         lengthroom.sendKeys(lengthroomValue);
 
         WebElement widthroom = driver.findElement(By.name("calc_roomheight"));
       //widthroom.clear();
+      widthroom.sendKeys(Keys.CONTROL + "a");
+      widthroom.sendKeys(Keys.DELETE);
         widthroom.sendKeys(widthroomValue);
 
         WebElement lengthlaminate = driver.findElement(By.name("calc_lamwidth"));
@@ -66,42 +70,48 @@ public class HomeWork_2 {
 
         WebElement widthlaminate = driver.findElement(By.name("calc_lamheight"));
      // widthlaminate.clear();
+      widthlaminate.sendKeys(Keys.CONTROL + "a");
+      widthlaminate.sendKeys(Keys.DELETE);
         widthlaminate.sendKeys(widthlaminateValue);
 
         WebElement quantitylaminateinpackage = driver.findElement(By.name("calc_inpack"));
       //quantitylaminateinpackage.clear();
+      quantitylaminateinpackage.sendKeys(Keys.CONTROL + "a");
+      quantitylaminateinpackage.sendKeys(Keys.DELETE);
         quantitylaminateinpackage.sendKeys(quantitylaminateinpackageValue);
 
         WebElement pricelaminatepackage = driver.findElement(By.name("calc_price"));
      // pricelaminatepackage.clear();
+      pricelaminatepackage.sendKeys(Keys.CONTROL + "a");
+      pricelaminatepackage.sendKeys(Keys.DELETE);
         pricelaminatepackage.sendKeys(pricelaminatepackageValue);
 
         WebElement layingdirectionElement = driver.findElement(By.name("calc_direct"));
         Select layingdirectionDropDown = new Select(layingdirectionElement);
 
         //sexDropDown.selectByIndex(1);
-        //layingdirectionDropDown.selectByValue("toh");
-      layingdirectionDropDown.selectByVisibleText("По ширине комнаты");
+        layingdirectionDropDown.selectByValue("toh");
+     // layingdirectionDropDown.selectByVisibleText("По ширине комнаты");
 
         WebElement seriesoffset = driver.findElement(By.name("calc_bias"));
      // seriesoffset.clear();
+      seriesoffset.sendKeys(Keys.CONTROL + "a");
+      seriesoffset.sendKeys(Keys.DELETE);
         seriesoffset.sendKeys(seriesoffsetValue);
 
         WebElement indentationfromthewall = driver.findElement(By.name("calc_walldist"));
      // indentationfromthewall.clear();
+      indentationfromthewall.sendKeys(Keys.CONTROL + "a");
+      indentationfromthewall.sendKeys(Keys.DELETE);
         indentationfromthewall.sendKeys(indentationfromthewallValue);
 
 
 
         // 7.Нажать на кнопку "Рассчитать"
-      WebElement calculate = driver.findElement(By.xpath("//input[@type='button']"));
-
-
-
+      WebElement calculate = driver.findElement(By.cssSelector("input[type= 'button']"));
       calculate.click();
 
-
-      // calculate.click();
+      Thread.sleep(5000);
 
         //8.Проверить результаты
 
@@ -123,7 +133,6 @@ public class HomeWork_2 {
         Assert.assertEquals(actualLeftovers,expectedLeftovers, "различные");
         Assert.assertEquals(actualSegments,expectedSegments, "различные");
 
-        Thread.sleep(25000);
 
         driver.quit();
     }
