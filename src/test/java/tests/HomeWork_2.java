@@ -34,7 +34,7 @@ public class HomeWork_2 {
 
 
 
-        String expectedLayingArea = "9.86";
+        String expectedLayingArea = "9.86 м2";
         String expectedNumberOfPanels = "45";
         String expectedNumberOfPackages = "4";
         String expectedCost = "5990";
@@ -108,7 +108,7 @@ public class HomeWork_2 {
 
 
         // 7.Нажать на кнопку "Рассчитать"
-      WebElement calculate = driver.findElement(By.xpath("input[type= 'button']"));
+      WebElement calculate = driver.findElementByXPath("//input[@value=\"Рассчитать\"]");
       calculate.click();
 
       Thread.sleep(5000);
