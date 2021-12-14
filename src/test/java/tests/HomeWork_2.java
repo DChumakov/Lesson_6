@@ -108,7 +108,7 @@ public class HomeWork_2 {
 
 
         // 7.Нажать на кнопку "Рассчитать"
-      WebElement calculate = driver.findElement(By.cssSelector("input[type= 'button']"));
+      WebElement calculate = driver.findElement(By.xpath("input[type= 'button']"));
       calculate.click();
 
       Thread.sleep(5000);

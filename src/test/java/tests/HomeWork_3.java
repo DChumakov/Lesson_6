@@ -71,13 +71,11 @@ public class HomeWork_3 {
         WebElement indentationfromthewalls = driver.findElement(By.id("indent_walls_id"));
         indentationfromthewalls.sendKeys(indentationfromthewallValue);
 
-        WebElement indentationfromthewall = driver.findElement(By.name("calc_walldist"));
-        indentationfromthewall.sendKeys(indentationfromthewallValue);
 
 
 
         // 7.Нажать на кнопку "Рассчитать"
-        WebElement calculate = driver.findElement(By.className("btn btn-secondary btn-lg tocalc"));
+        WebElement calculate = driver.findElement(By.cssSelector("calc-btn"));
         calculate.click();
 
         //8.Проверить результаты
