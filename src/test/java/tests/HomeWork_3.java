@@ -12,7 +12,7 @@ import static java.lang.System.setProperty;
 public class HomeWork_3 {
 
     @Test
-    public void homework_1() {
+    public void homework_1() throws InterruptedException {
 
         String URL = " https://calc.by/building-calculators/laminate.html";
 
@@ -39,7 +39,7 @@ public class HomeWork_3 {
 
         driver.manage().window().maximize();
 
-
+        Thread.sleep(5000);
         WebElement lengthroom = driver.findElement(By.id("ln_room_id"));
         lengthroom.sendKeys(lengthroomValue);
 
