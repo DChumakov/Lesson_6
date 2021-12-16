@@ -1,5 +1,6 @@
 package pages;
 
+import Core.ReadProperties;
 import baseEntities.BasePage;
 import baseEntities.BaseTest;
 import org.openqa.selenium.By;
@@ -14,7 +15,6 @@ public class LoginPage extends BasePage {
     private By password_Selector = By.id("password");
     private By login_Selector = By.id("button_primary");
 
-    private WebDriver driver;
 
     // Конструктор страницы
     public LoginPage(WebDriver driver) {
@@ -27,17 +27,26 @@ public class LoginPage extends BasePage {
 
     // Реализация геттеров элементов
     public WebElement getEmailField() {
+
         return driver.findElement(email_Selector);
     }
 
-    public WebElement getpasswordField() {
+    public WebElement getPasswordField() {
+
         return driver.findElement(password_Selector);
     }
 
-    public WebElement getloginButton() {
+    public WebElement getLoginButton() {
         return driver.findElement(login_Selector);
     }
 
 
     // Реализация базовых методов
+    public void login(String username,String password) {
+        getEmailField().sendKeys(ReadProperties.getUsername());
+
+        getPasswordField().sendKeys(ReadProperties.getPassword());
+
+        getLoginButton().click();
+    }
 }

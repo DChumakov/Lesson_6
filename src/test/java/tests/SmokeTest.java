@@ -11,11 +11,17 @@ public class SmokeTest extends BaseTest {
     @Test
     public void loginTest() {
         LoginPage loginpage = new LoginPage(driver);
-        loginpage.getEmailField().sendKeys(ReadProperties.getusername());
-        loginpage.getpasswordField().sendKeys(ReadProperties.getpassword());
-        loginpage.getloginButton().click();
+        loginpage.getEmailField().sendKeys(ReadProperties.getUsername());
+        loginpage.getPasswordField().sendKeys(ReadProperties.getPassword());
+        loginpage.getLoginButton().click();
     }
 
 
+    @Test
+    public void loginTest1() {
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login(ReadProperties.getUsername(), ReadProperties.getPassword());
+    }
 
 }

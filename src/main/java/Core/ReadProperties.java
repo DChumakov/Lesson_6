@@ -22,19 +22,22 @@ public class ReadProperties {
         return properties.getProperty("url");
     }
 
-    public static String getbrowserType() {
+    public static String getBrowserType() {
         return properties.getProperty("browserType");
     }
 
-    public static boolean getheadless() {
+    public static boolean getHeadless() {
+
         return properties.getProperty("headless").equalsIgnoreCase("false");
     }
 
-    public static String getusername() {
+    public static String getUsername() {
+
         return properties.getProperty("username");
     }
 
-    public static String getpassword() {
+    public static String getPassword() {
+
         return properties.getProperty("password");
     }
 }

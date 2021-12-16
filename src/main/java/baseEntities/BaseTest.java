@@ -22,7 +22,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        switch (ReadProperties.getbrowserType().toLowerCase(Locale.ROOT)) {
+        switch (ReadProperties.getBrowserType().toLowerCase(Locale.ROOT)) {
             case "chrome":
                 WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
 
@@ -30,7 +30,7 @@ public class BaseTest {
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--silent");
                 chromeOptions.addArguments("--start-maximize");
-                chromeOptions.setHeadless(ReadProperties.getheadless());
+                chromeOptions.setHeadless(ReadProperties.getHeadless());
 
                 driver = new ChromeDriver(chromeOptions);
                 break;
@@ -43,13 +43,12 @@ public class BaseTest {
                 System.out.println("This type of browser is not supported");
                 break;
         }
-        {
+
             //driver.manage().window().maximize();
             driver.get(ReadProperties.getUrl());
 
         }
 
-        }
     @AfterMethod
     public void tearDown () {
         driver.quit();
