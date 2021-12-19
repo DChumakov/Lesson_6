@@ -36,15 +36,17 @@ public class CssSelectors {
 
         By elementRightAfterElementSelector = By.cssSelector("#form+script");  // поиск поиск элемента script который идёт сразу после элемента #form
 
-        By elementOnTheSameLevelSelector = By.cssSelector("li:first-child");  // поиск элементов script которым предшевствует элемент #form
+        By elementOnTheSameLevelSelector = By.cssSelector("#form~script");  // поиск элементов script которым предшевствует элемент form
 
-        By firstChildSelector = By.cssSelector("li:last-child");  // поиск 1 дочернего элемента
+        By firstChildSelector = By.cssSelector("li:first-child");  // поиск 1 дочернего элемента
 
-        By lastChildSelector = By.cssSelector("li:nth-child(5)");  // поиск последнего дочернего элемента
+        By lastChildSelector = By.cssSelector("li:last-child");  // поиск последнего дочернего элемента
 
-        By nthChildFromBeginSelector = By.cssSelector("li:nth-last-child(3)");  // поиск н-ного дочернего элемента с начала
+        By nthChildFromBeginSelector = By.cssSelector("li:nth-child(5)");  // поиск н-ного дочернего элемента с начала
 
-        By nthChildFromEndSelector = By.cssSelector("#form~script");  // поиск н-ного дочернего элемента с конца
+        By nthChildFromEndSelector = By.cssSelector("li:nth-last-child(3)");  // поиск н-ного дочернего элемента с конца
+
+
 
 
 

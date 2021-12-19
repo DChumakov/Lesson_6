@@ -64,7 +64,7 @@ public class HomeWork_4_selectori {
                 "\t$(function(){\n" +
                 "\t\t$('.info-list li').last().addClass('last');\n" +
                 "\t});\n" +
-                "</script>");  // поиск элементов script которым предшевствует элемент form
+                "</script>");  // поиск элементов script которым предшевствует элемент div
 
 
         By firstChildSelector = By.cssSelector("li class='first'");  // поиск 1 дочернего элемента
