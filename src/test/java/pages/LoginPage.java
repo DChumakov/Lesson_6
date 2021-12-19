@@ -18,10 +18,12 @@ public class LoginPage extends BasePage {
 
     // Конструктор страницы
     public LoginPage(WebDriver driver) {
+
         super(driver);
     }
 
     public boolean isPageOpened() {
+
         return super.isPageOpened(PAGE_OPENED_IDENTIFIER);
     }
 

@@ -22,14 +22,14 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        switch (ReadProperties.getBrowserType().toLowerCase(Locale.ROOT)) {
+        switch (ReadProperties.getBrowserType().toLowerCase()) {
             case "chrome":
                 WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
 
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--silent");
-                chromeOptions.addArguments("--start-maximize");
+                //chromeOptions.addArguments("--start-maximize");
                 chromeOptions.setHeadless(ReadProperties.getHeadless());
 
                 driver = new ChromeDriver(chromeOptions);
@@ -44,13 +44,14 @@ public class BaseTest {
                 break;
         }
 
-            //driver.manage().window().maximize();
-            driver.get(ReadProperties.getUrl());
+        //driver.manage().window().maximize();
+        driver.get(ReadProperties.getUrl());
 
-        }
+    }
 
     @AfterMethod
-    public void tearDown () {
+    public void tearDown() {
+
         driver.quit();
     }
 

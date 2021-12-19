@@ -13,10 +13,10 @@ public class ReadProperties {
             properties.load(ReadProperties.class.getClassLoader().getResourceAsStream(filename));
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (NullPointerException npe) {
 
         }
-    }
+
+}
 
     public static String getUrl() {
         return properties.getProperty("url");
@@ -28,7 +28,7 @@ public class ReadProperties {
 
     public static boolean getHeadless() {
 
-        return properties.getProperty("headless").equalsIgnoreCase("false");
+        return properties.getProperty("headless").equalsIgnoreCase("true");
     }
 
     public static String getUsername() {
