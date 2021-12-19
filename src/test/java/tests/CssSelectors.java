@@ -22,11 +22,11 @@ public class CssSelectors {
 
         By simpleHierarchicalsSelector = By.cssSelector(".table .content-inner");  // поиск простого дочернего элемента
 
-        By fullHierarchicalsSelector = By.cssSelector("div[class~='column']");  // использование трёуровневой иерархии для поиска дочернего элемента
+        By fullHierarchicalsSelector = By.cssSelector("body .table .content-inner");  // использование трёуровневой иерархии для поиска дочернего элемента
 
         By searchLikeContainesSelector = By.cssSelector("form[action*='admin']");  // поиск с вхождением подстроки в значение атрибута
 
-        By searchByWordSelector = By.cssSelector("form[action*='admin']");  // поиск с вхождением слова в значении атрибута
+        By searchByWordSelector = By.cssSelector("form[action~='admin']");  // поиск с вхождением слова в значении атрибута
 
         By valueStartsFromSelector = By.cssSelector("a[href^='https://']");  // поиск элемента с атрибутом значение которого начинается с чего-то
 
