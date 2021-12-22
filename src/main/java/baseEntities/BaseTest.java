@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.sql.Driver;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 
 public class BaseTest {
@@ -44,6 +45,7 @@ public class BaseTest {
                 break;
         }
 
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.MILLISECONDS);
         //driver.manage().window().maximize();
         driver.get(ReadProperties.getUrl());
 

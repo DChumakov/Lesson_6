@@ -40,4 +40,9 @@ public class ReadProperties {
 
         return properties.getProperty("password");
     }
+
+    public static String getTimeOut() {
+
+        return properties.getProperty("timeOut");
+    }
 }
