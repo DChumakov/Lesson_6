@@ -7,6 +7,7 @@ public class CalcTest extends BaseTest {
 
    // @Test (invocationCount = 3, invocationTimeOut = 1000)
     @Test (invocationCount = 6, threadPoolSize = 3)
+
     public void invocationTest() throws InterruptedException {
         Thread.sleep(250);
         Assert.assertEquals(cal.sum(2,3),5);

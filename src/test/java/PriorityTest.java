@@ -5,13 +5,13 @@ import static org.testng.TestRunner.PriorityWeight.priority;
 
 public class PriorityTest {
 
-    @Test (priority = 1)
+    @Test (priority = 2)
 
     public void abcTest() {
         System.out.println("DependencyTest -> abcTest");
     }
 
-    @Test (priority = 2)
+    @Test (priority = 1)
 
     public void cbaTest() {
         System.out.println("DependencyTest -> cbaTest");
