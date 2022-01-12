@@ -1,6 +1,7 @@
 package pages;
 
 import baseEntity.BasePage;
+import core.ReadProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,6 +40,21 @@ public class LoginPage extends BasePage {
     public WebElement getLoginButton() {
         return driver.findElement(loginSelector);
     }
+
+    private void populateFields(String email, String psw) {
+        getEmailField().sendKeys(ReadProperties.getUsername());
+        getPasswordField().sendKeys(ReadProperties.getPassword());
+    }
+
+    public DashBoardPage successLogin(String email, String psw) {
+        populateFields(email, psw);
+        getLoginButton().click();
+        return new DashBoardPage(driver);
+    }
+
+    public LoginPage incorrectLogin(String email, String psw) {
+        populateFields(email, psw);
+        getLoginButton().click();
+        return new LoginPage(driver);
+    }
 }
-
-
