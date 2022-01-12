@@ -4,19 +4,24 @@ import baseEntity.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
     private static String ENDPOINT = "/auth/login";
 
     protected By PAGE_OPENED_IDENTIFIER = By.id("button_primary");
 
-    protected By emailSelector = By.id("name");
-    protected By passwordSelector = By.id("password");
-    protected By loginSelector = By.id("button_primary");
+    @FindBy (id = "name")
+    public WebElement emailField;
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
+    @FindBy (id = "password")
+    public WebElement passwordField;
+
+    @FindBy (id = "button_Primary")
+    public WebElement loginButton;
+
+    public LoginPage(WebDriver driver) {super(driver); }
+
 
     @Override
     protected void openPage() {
@@ -27,16 +32,5 @@ public class LoginPage extends BasePage {
         return !super.isPageOpened(PAGE_OPENED_IDENTIFIER);
     }
 
-    public WebElement getEmailField() {
-        return driver.findElement(emailSelector);
-    }
-
-    public WebElement getPasswordField() {
-        return driver.findElement(passwordSelector);
-    }
-
-    public WebElement getLoginButton() {
-        return driver.findElement(loginSelector);
-    }
 }
 
