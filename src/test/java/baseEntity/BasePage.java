@@ -33,6 +33,7 @@ public abstract class BasePage {
     }
 
     protected abstract void openPage();
+
     protected abstract boolean isPageOpened();
 
     protected void waitForOpen() {
@@ -40,7 +41,7 @@ public abstract class BasePage {
         boolean isPageOpenedIndicator = isPageOpened();
 
         while (!isPageOpenedIndicator
-                && tryCount < (WAIT_FOR_PAGE_LOADED_IN_SECONDS/ReadProperties.getTimeOut())) {
+                && tryCount < (WAIT_FOR_PAGE_LOADED_IN_SECONDS / ReadProperties.getTimeOut())) {
             tryCount++;
             isPageOpenedIndicator = isPageOpened();
         }

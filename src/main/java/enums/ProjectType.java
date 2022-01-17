@@ -12,7 +12,16 @@ public enum ProjectType {
     }
 
     public String toString() {
-        switch ()
+        switch (this) {
+            case SINGLE:
+                return "1";
+            case SINGLE_WITH_BASELINE:
+                return "2";
+            case MULTIPLE:
+                return "3";
+            default:
+                return "-1";
+        }
     }
-
 }
+
