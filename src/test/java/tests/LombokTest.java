@@ -12,15 +12,19 @@ public class LombokTest {
     @Test
     public void loginTest() {
         User user = User.builder()
-                .email(ReadProperties.getUsername());
-                .password(ReadProperties.getPassword());
+                .email(ReadProperties.getUsername())
+                .password(ReadProperties.getPassword())
                 .build();
 
         user.setEmail(ReadProperties.getUsername());
         user.setPassword(ReadProperties.getPassword());
 
-        User user1 = new User();
-        user1.setEmail(ReadProperties.getUsername());
-        user1.setPassword(ReadProperties.getPassword());
+        User user1 = User.builder()
+                .email(ReadProperties.getUsername())
+                .password(ReadProperties.getPassword())
+                .build();
+
+        user.setEmail(ReadProperties.getUsername());
+        user.setPassword(ReadProperties.getPassword());
     }
 }
