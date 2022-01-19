@@ -2,10 +2,8 @@ package tests;
 
 import baseEntity.BaseTest;
 import core.ReadProperties;
-import enums.ProjectType;
 import models.Project;
 import models.User;
-import models.UserBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
@@ -19,9 +17,10 @@ public class SmokeTest extends BaseTest {
 
     @Test
     public void loginTest() {
-        User user = new User()
-                .setEmail(ReadProperties.getUsername())
-                .setPassword(ReadProperties.getPassword());
+        User user = new User();
+
+                user.setEmail(ReadProperties.getUsername())
+                user.setPassword(ReadProperties.getPassword());
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(user);
