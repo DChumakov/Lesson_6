@@ -5,18 +5,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class DashBoardPage extends BasePage {
+public class DashboardPage extends BasePage {
     private static String ENDPOINT = "/dashboard";
 
     private static final By PAGE_OPENED_IDENTIFIER = By.id("activityChart");
 
     protected By addProjectButtonSelector = By.id("sidebar-projects-add");
 
-    public DashBoardPage(WebDriver driver) {
+    public DashboardPage(WebDriver driver) {
         super(driver);
     }
 
-    public DashBoardPage(WebDriver driver, boolean openPageByUrl) {
+    public DashboardPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
     }
 
