@@ -9,6 +9,7 @@ public class Project {
     private ProjectType typeOfProject;
     private boolean isCompleted;
 
+
     public Project() {
     }
 
