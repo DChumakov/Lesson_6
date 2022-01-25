@@ -1,4 +1,4 @@
-package tests;
+package tests.gui;
 
 import baseEntity.BaseTest;
 import models.Milestone;
@@ -11,7 +11,7 @@ import steps.ProjectSteps;
 
 public class MilestoneTests extends BaseTest {
 
-    @Test
+   /* @Test
     public void test1() {
         Project project = new Project();
         User user = new User();
@@ -24,5 +24,5 @@ public class MilestoneTests extends BaseTest {
         milestoneSteps.createMilestone(project, milestone);
 
 
-    }
+    }*/
 }
