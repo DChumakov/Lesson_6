@@ -3,7 +3,7 @@ package tests.api;
 import baseEntity.BaseApiTest;
 import enums.ProjectType;
 import io.restassured.mapper.ObjectMapperType;
-import models.Project;
+import io.restassured.response.Response;
 import models.ProjectBuilder;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
@@ -20,6 +20,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     @Test
     public void getAllProjects() {
         String endpoint = "/index.php?/api/v2/get_projects";
+
         given()
                 .when()
                 .get(endpoint)
@@ -32,18 +33,19 @@ public class TestRailApiTest1 extends BaseApiTest {
         String endpoint = "/index.php?/api/v2/add_project";
 
         ProjectBuilder project = ProjectBuilder.builder()
-                .name("WP_Project_03")
+                .name("WP_Project_01")
                 .announcement("This is the description for the project")
                 .isShowAnnouncement(true)
-                .typeOfProject(ProjectType.SINGLE)
+                .typeOfProject(ProjectType.SINGLE_SUITE_MODE)
                 .build();
+
         given()
                 .body(String.format("{\n" +
-                                "  \"name\": \"%s\",\n" +
-                                "  \"announcement\": \"%s\",\n" +
-                                "  \"show_announcement\": %b,\n" +
-                                "  \"suite_mode\" : %d\n" +
-                                "}",
+                        "  \"name\": \"%s\",\n" +
+                        "  \"announcement\": \"%s\",\n" +
+                        "  \"show_announcement\": %b,\n" +
+                        "  \"suite_mode\" : %d\n" +
+                        "}",
                         project.getName(),
                         project.getAnnouncement(),
                         project.isShowAnnouncement(),
@@ -58,24 +60,22 @@ public class TestRailApiTest1 extends BaseApiTest {
     public void addProject2() {
         String endpoint = "/index.php?/api/v2/add_project";
 
-
         ProjectBuilder project = ProjectBuilder.builder()
-                .name("WP_Project_03")
-                .typeOfProject(ProjectType.SINGLE)
+                .name("WP_Project_02")
+                .typeOfProject(ProjectType.SINGLE_SUITE_MODE)
                 .build();
 
-        Map<String, Object> jsonMap = new HashMap<>();
-        jsonMap.put("name", project.getName());
-        jsonMap.put("suite_mode", project.getTypeOfProject().getProjectType());
+        Map<String, Object> jsonAsMap = new HashMap<>();
+        jsonAsMap.put("name", project.getName());
+        jsonAsMap.put("suite_mode", project.getTypeOfProject());
 
         given()
-                .body(jsonMap)
+                .body(jsonAsMap)
                 .when()
                 .post(endpoint)
                 .then()
                 .log().body()
-                .statusCode(HttpStatus.SC_OK)
-
+                .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         ProjectBuilder project = ProjectBuilder.builder()
                 .name("WP_Project_03")
-                .typeOfProject(ProjectType.SINGLE_WITH_BASELINE)
+                .typeOfProject(ProjectType.SINGLE_SUITE_BASELINES)
                 .build();
 
         given()
@@ -102,7 +102,7 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         ProjectBuilder project = ProjectBuilder.builder()
                 .name("WP_Project_04")
-                .typeOfProject(ProjectType.SINGLE_WITH_BASELINE)
+                .typeOfProject(ProjectType.SINGLE_SUITE_BASELINES)
                 .build();
 
         projectID = given()
@@ -128,8 +128,8 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .isCompleted(true)
                 .build();
 
-        given()
-                .pathParam("project_id" , projectID)
+        Response response = given()
+                .pathParam("project_id", projectID)
                 .body(projectUpd, ObjectMapperType.GSON)
                 .when()
                 .post(endpoint)
@@ -137,22 +137,20 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .log().body()
                 .extract().response();
 
-        Assert.assertEquals(response.getBody().jsonPath());
+        Assert.assertEquals(response.getBody().jsonPath().get("name"),
+                projectUpd.getName());
     }
 
-    @Test(dependsOnMethods = "addProject4")
+    @Test(dependsOnMethods = "updateProject")
     public void deleteProject() {
-        String endpoint = "/index.php?/api/v2/update_project/{project_id}";
+        String endpoint = "index.php?/api/v2/delete_project/{project_id}";
 
         given()
-                .pathParam("project_id" , projectID)
-                .log().body()
+                .pathParam("project_id", projectID)
                 .when()
                 .post(endpoint)
                 .then()
                 .log().body()
-                .extract().response();
-
-        Assert.assertEquals(response.getBody().jsonPath());
+                .statusCode(HttpStatus.SC_OK);
     }
 }

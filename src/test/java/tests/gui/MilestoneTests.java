@@ -11,10 +11,10 @@ import steps.ProjectSteps;
 
 public class MilestoneTests extends BaseTest {
 
-   /* @Test
+    @Test
     public void test1() {
         Project project = new Project();
-        User user = new User();
+        User user = User.builder().build();
         Milestone milestone = new Milestone();
 
         LoginPage loginPage = new LoginPage(driver);
@@ -24,5 +24,5 @@ public class MilestoneTests extends BaseTest {
         milestoneSteps.createMilestone(project, milestone);
 
 
-    }*/
+    }
 }

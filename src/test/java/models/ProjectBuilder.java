@@ -12,9 +12,8 @@ public class ProjectBuilder {
     private String announcement;
     private boolean isShowAnnouncement;
     @SerializedName(value = "suite_mode")
-    private ProjectType typeOfProject;
+    private int typeOfProject;
     @SerializedName(value = "is_completed")
     private boolean isCompleted;
     private User user;
-
 }

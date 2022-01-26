@@ -11,4 +11,3 @@ public class Listener implements ITestListener {
         System.out.println("=========================================");
     }
 }
-

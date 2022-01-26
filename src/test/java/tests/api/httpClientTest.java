@@ -14,12 +14,12 @@ public class httpClientTest {
 
     @Test
     public void simpleApiTest() throws IOException {
-        String restURL = "http://reqres.in";
+        String restURL = "https://reqres.in";
 
         // Create Object and pass the url
         HttpUriRequest request = new HttpGet(restURL);
 
-        //send the request
+        // send the request
         HttpResponse httpResponse = HttpClientBuilder
                 .create()
                 .build()

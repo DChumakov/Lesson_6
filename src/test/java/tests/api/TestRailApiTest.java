@@ -1,28 +1,34 @@
 package tests.api;
 
+import baseEntity.BaseApiTest;
+import com.sun.xml.internal.ws.policy.EffectiveAlternativeSelector;
+import core.ReadProperties;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
+import org.apache.http.protocol.HTTP;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class reqresAPITest {
+public class TestRailApiTest extends BaseApiTest {
 
     @Test
-    public void simpleStepByApiTest() {
-        //Setup Rest Assured
-        RestAssured.baseURI = "https://reqres.in";
+    public void getAllUsers() {
+        // Setup RestAssured
+        RestAssured.baseURI = ReadProperties.getUrl();
 
-        //Setup endpoint
-        int userID = 2;
-        String endpoint = "/api/users/2" + userID;
+        // Setup endpoint
+        String endpoint = "/index.php?/api/v2/get_users";
 
         // Setup request Object
         RequestSpecification httpRequest = given();
+        httpRequest.header(HTTP.CONTENT_TYPE, ContentType.JSON);
+        httpRequest.auth().preemptive().basic(ReadProperties.getUsername(), ReadProperties.getPassword());
 
         // Setup Response Object
         Response response = httpRequest.request(Method.GET, endpoint);
@@ -36,22 +42,19 @@ public class reqresAPITest {
         // Get Response Body
         String responseBody = response.getBody().asString();
         System.out.println("Response: " + responseBody);
+    }
 
-
-    } @Test
-    public void simpleShortApiTest() {
-        //Setup Rest Assured
-        RestAssured.baseURI = "https://reqres.in";
-
-        //Setup endpoint
-        int userID = 2;
-        String endpoint = "/api/users/2" + userID;
+    @Test
+    public void getAllUsers1() {
+        // Setup endpoint
+        String endpoint = "/index.php?/api/v2/get_users";
 
         given()
                 .when()
                 .get(endpoint)
                 .then()
-                .statusCode(HttpStatus.SC_OK)
-                .log().body();
+                .log().status()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
     }
 }
