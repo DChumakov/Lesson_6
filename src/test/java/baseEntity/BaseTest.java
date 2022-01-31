@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners(Listener.class)
 public class BaseTest {
     protected WebDriver driver;
-    protected BrowsersService browsersService;
+    public BrowsersService browsersService;
     protected Waits waits;
 
     protected ProjectSteps projectSteps;
