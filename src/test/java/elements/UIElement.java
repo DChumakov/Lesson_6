@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UIElement implements WebElement {
     private final WebDriver driver;
-    private final By by = null;
+    private By by = null;
     private final WebElement webElement;
     private final Waits waits;
 
@@ -123,18 +123,18 @@ public class UIElement implements WebElement {
 
     @Override
     public String getCssValue(String s) {
-        return webElement.getCssValue();
-    }
+       // return webElement.getCssValue();
+   // }
 
-    @Override
-    public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
-        return webElement.getScreenshotAs(outputType);
-    }
+   // @Override
+   // public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
+       // return webElement.getScreenshotAs(outputType);
+  //  }
 
-    public  void DoubleClick() {
-        new Actions(driver)
-                .doubleClick(webElement)
-                .build()
-                .perform();
-    }
-}
+   // public  void DoubleClick() {
+       // new Actions(driver)
+              //  .doubleClick(webElement)
+                //.build()
+               // .perform();
+   // }
+//}

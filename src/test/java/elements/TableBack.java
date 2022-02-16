@@ -47,5 +47,5 @@ public class TableBack<by> {
     public UIElement getElementFromCell(UIElement cellElement, By by) {
         return null;
     }
-    return cellElement.findElement(by);
+   // return cellElement.findElement(by);
 }

@@ -18,6 +18,10 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    public LoginPage(WebDriver driver,boolean openURL) {
+        super(driver,openURL);
+    }
+
     @Override
     protected void openPage() {
         driver.get(BASE_URL + ENDPOINT);
@@ -28,7 +32,7 @@ public class LoginPage extends BasePage {
         return waits.waitForVisibility(PAGE_OPENED_IDENTIFIER).isDisplayed();
     }
 
-    public WebElement getEmailField() {
+    public static WebElement getEmailField() {
         return driver.findElement(emailSelector);
     }
 
@@ -40,7 +44,7 @@ public class LoginPage extends BasePage {
         return new Button(driver, loginSelector);
     }
 
-    public void login(User user) {
+    public static void login(User user) {
         getEmailField().sendKeys(user.getEmail());
         getPasswordField().sendKeys(user.getPassword());
         getLoginButton().click();
