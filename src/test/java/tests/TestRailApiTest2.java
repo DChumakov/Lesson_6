@@ -1,4 +1,4 @@
-package tests.api;
+package tests;
 
 import baseEntity.BaseApiTest;
 import com.google.common.reflect.TypeToken;

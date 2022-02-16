@@ -1,33 +1,28 @@
-package tests.api;
+package tests;
 
-import baseEntity.BaseApiTest;
-import core.ReadProperties;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.http.HttpStatus;
-import org.apache.http.protocol.HTTP;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class TestRailApiTest extends BaseApiTest {
+public class reqresApiTest {
 
     @Test
-    public void getAllUsers() {
+    public void simpleStepByStepApiTest() {
         // Setup RestAssured
-        RestAssured.baseURI = ReadProperties.getUrl();
+        RestAssured.baseURI = "https://reqres.in";
 
         // Setup endpoint
-        String endpoint = "/index.php?/api/v2/get_users";
+        int userID = 2;
+        String endpoint = "/api/users/" + userID;
 
         // Setup request Object
         RequestSpecification httpRequest = given();
-        httpRequest.header(HTTP.CONTENT_TYPE, ContentType.JSON);
-        httpRequest.auth().preemptive().basic(ReadProperties.getUsername(), ReadProperties.getPassword());
 
         // Setup Response Object
         Response response = httpRequest.request(Method.GET, endpoint);
@@ -44,16 +39,19 @@ public class TestRailApiTest extends BaseApiTest {
     }
 
     @Test
-    public void getAllUsers1() {
+    public void simpleShortApiTest() {
+        // Setup RestAssured
+        RestAssured.baseURI = "https://reqres.in";
+
         // Setup endpoint
-        String endpoint = "/index.php?/api/v2/get_users";
+        int userID = 2;
+        String endpoint = "/api/users/" + userID;
 
         given()
                 .when()
                 .get(endpoint)
                 .then()
-                .log().status()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
+                .statusCode(HttpStatus.SC_OK)
+                .log().body();
     }
 }

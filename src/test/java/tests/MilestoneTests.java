@@ -1,4 +1,4 @@
-package tests.gui;
+package tests;
 
 import baseEntity.BaseTest;
 import models.Milestone;
